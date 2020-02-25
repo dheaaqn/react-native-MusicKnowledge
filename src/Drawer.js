@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Routes from './Routes';
 import Profile from './pages/Profile';
 import Quiz from './pages/Quiz';
+import About from './pages/About';
 import IndexExam from './pages/IndexExam';
 import Logout from './components/Logout';
 
@@ -18,7 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
          const [email, setEmail] = useState('');
          { getProfile() }
       return (
-        <Text>{ name }{"\n"}{"\n"}{ email }</Text>
+        <Text>{ name.toUpperCase() }{"\n"}{"\n"}{ email }</Text>
         );
       async function getProfile(){
       const test = await AsyncStorage.getItem('data');
@@ -53,7 +54,8 @@ const Drawer = createDrawerNavigator(
   Home: Home,
   Quiz: Quiz,
   Exam: IndexExam,
-  Logout: Logout,
+  AboutUs: About,
+  SignOut: Logout,
   Routes: { screen: Routes,
     navigationOptions: {
           drawerLabel: () => null //hide header if not needed so whole screen slide  

@@ -33,15 +33,17 @@ class IsiMateri extends Component<Props> {
   constructor(props) {
     super(props)
     this.state = {
-        isimateri: []
+        isimateri: [],
+        judul:''
     };
+    this.get();
   }
-  UNSAFE_componentWillMount() {
-       
+ async get() {
     const idsubmateri = this.props.navigation.state.params.id_sub_materi;
-    const judulmateri = this.props.navigation.state.params.judul_sub_materi;
+    const judulmateri = this.props.navigation.state.params.judul;
     axios.get(`http://3.82.209.169/api/isimateri`,{params: {id_sub_materi:idsubmateri}})
       .then(res => {
+        this.setState({ judul:judulmateri });
         const isimateri = res.data;
         this.setState({ isimateri });
       })
@@ -93,11 +95,12 @@ return isi;
      }
     }
   render() {
+       console.log(this.state.judul);
     return (
         <View style={styles.container} >
             <Content padder>
                     <Separator bordered><Text style={{fontSize: 16 }}>
-                    Pengertian Musik Menurut Ahli</Text></Separator>
+                    {this.state.judul}</Text></Separator>
              <ScrollView style={{ alignSelf: 'stretch' }}>
              { this.handleEvents() }
         </ScrollView>

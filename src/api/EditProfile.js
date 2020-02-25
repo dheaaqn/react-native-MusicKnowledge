@@ -40,8 +40,6 @@ class EditProfile extends React.Component {
         password: '',
         id: 0,
     };
-  }
-UNSAFE_componentWillMount() {
       this.getData();
   }
     getData = async () => {
@@ -76,33 +74,48 @@ edit=()=> {
   render() {
     return (
         <View style={styles.container} >
-          <Text style={styles.hiName}>Hi {this.state.email}!</Text>
-<TextInput style={styles.inputBox}
+         <View style={styles.head}>
+         <Image source={require('../images/email.png')} style={styles.gambar}/>
+        <View style={{marginTop:10}}>
+        <Text style={styles.hasil}>Email</Text>
+         <Text style={styles.hasil}>{this.state.email}</Text>
+         </View>
+         </View>
+         <View style={styles.head}>
+         <Image source={require('../images/name.png')} style={styles.gambar}/>
+        <View style={{marginTop:10}}>
+        <Text style={styles.hasil}>Name</Text>
+        <TextInput style={styles.inputBox}
 
+        placeholder="Name"
 
-placeholder="Name"
+        keyboardType="default"
 
-keyboardType="default"
+        onChangeText={(name) => this.setState({name})}
 
-onChangeText={(name) => this.setState({name})}
+        value={this.state.name}
+        />
+         </View>
+         </View>
+         <View style={styles.head}>
+         <Image source={require('../images/pass.png')} style={styles.gambar}/>
+        <View style={{marginTop:10}}>
+        <Text style={styles.hasil}>Password</Text>
+        <TextInput style={styles.inputBox}
 
-value={this.state.name}
-/>
+        placeholder="Password"
 
-<TextInput style={styles.inputBox}
+        secureTextEntry={true}
 
-placeholder="Password"
+        onChangeText={(password) => this.setState({password})}
 
-secureTextEntry={true}
+        value={this.state.password}
+        />
+         </View>
+         </View>
+<TouchableOpacity onPress={this.edit}>
 
-onChangeText={(password) => this.setState({password})}
-
-value={this.state.password}
-/>
-
-<TouchableOpacity style={styles.button} onPress={this.edit}>
-
-<Text style={styles.buttonText}>Edit</Text>
+<Text style={styles.button}>Edit</Text>
 
 </TouchableOpacity>
        </View>
@@ -112,9 +125,23 @@ value={this.state.password}
  export default withNavigation(EditProfile);
 
 const styles = StyleSheet.create({
+  head:{
+    flexDirection:'row',
+    flexWrap:'wrap',
+    marginTop:20,
+    paddingBottom:30,
+    borderBottomWidth: 1,
+    width:'90%'
+  },
   container: {
     marginTop: 20,
-       flex: 1,
+    flex: 1,
+    marginLeft: '10%'
+  },
+  gambar:{
+    marginRight:15,
+    width: 60,
+    height:60,
   },
    cardContainer: {
         borderRadius: 8,
@@ -125,5 +152,37 @@ const styles = StyleSheet.create({
     textTitle: {
         top: 25,
         left: 25,
-    }
+    },
+inputBox: {
+
+width:250,
+
+backgroundColor:'#F7F7F7',
+
+borderRadius: 4,
+
+paddingHorizontal:16,
+
+fontSize:15,
+
+lineHeight:19,
+
+color:'#000000',
+
+marginVertical: 10,
+
+},
+
+button: {
+    width:'90%',
+    color:'#fff',
+    textAlign: "center",
+    backgroundColor:'#F8A23B',
+    fontSize:15,
+    padding:15,
+    borderRadius:7,
+    marginTop: 70,
+    shadowColor: "#000",
+    fontWeight: "bold",
+ },
 });

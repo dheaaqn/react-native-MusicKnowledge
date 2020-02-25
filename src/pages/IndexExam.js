@@ -12,10 +12,8 @@ class IndexExam extends React.Component {
     this.state = {
         name: '',
     };
-  }
-UNSAFE_componentWillMount() {
-      this.getData();
-  }
+     this.getData();
+   }
     getData = async () => {
       const test = await AsyncStorage.getItem('data');
       const parsed = JSON.parse(test);
@@ -37,7 +35,7 @@ UNSAFE_componentWillMount() {
           <Right></Right>
         </View>
 
-        <View  >
+        <View style={{alignItems:'center'}}>
           <IndexesExam />
         </View>
       </View>

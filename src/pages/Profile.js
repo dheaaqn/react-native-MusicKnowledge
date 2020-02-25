@@ -25,11 +25,14 @@ export default class Profile extends Component{
     render() {
     return (
       <Container>
-      <View style={{backgroundColor: '#F49423', height: 200}}>
-        <View style={{top: 30, left: 30}}>
+      <View style={{backgroundColor: '#F49423', height: 90}}>
+        <View style={{top: 30, left: 30,flexDirection:'row', flexWrap:'wrap'}}>
           <Button transparent onPress={() => this.props.navigation.openDrawer()}>
             <Image source={require('../icons/menu.png')} />
           </Button>
+          <Text style={{marginTop:10,marginLeft:'25%',fontSize:18,color:'#fff',fontWeight:"bold"}}>
+          Edit Profile
+          </Text>
         </View>
       </View>
 
@@ -52,55 +55,4 @@ justifyContent:'center',
 alignItems: 'center'
 
 },
-
-
-
-inputBox: {
-
-width:300,
-
-backgroundColor:'#F7F7F7',
-
-borderRadius: 4,
-
-paddingHorizontal:16,
-
-fontSize:15,
-
-lineHeight:19,
-
-color:'#000000',
-
-marginVertical: 10
-
-},
-
-button: {
-
-width:200,
-
-backgroundColor:'#f8a33b',
-
-borderRadius: 4,
-
-marginVertical: 10,
-
-paddingVertical: 13,
-
-},
-
-buttonText: {
-
-fontSize: 14,
-
-lineHeight: 19,
-
-color:'#ffffff',
-
-textAlign:'center'
-
-}
-
-
-
 });

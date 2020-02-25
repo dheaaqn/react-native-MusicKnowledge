@@ -24,15 +24,16 @@ class IsiExam extends Component<Props> {
       nomor:1,
       totalsoal:0,
       id_sub_materi:1,
-      waktu:7
+      waktu:10
     };
+    this.get();
   }
-  async componentDidMount() {
+  get() {
     const id_users = this.props.navigation.state.params.id_user;
-    this.setState({id_user:id_users});
-     await axios.get(`http://3.82.209.169/api/allsoal`)
+     axios.get(`http://3.82.209.169/api/allsoal`)
       .then(res => {
         const soal = res.data;
+        this.setState({id_user:id_users});
         this.setState({ soal });
         this.setState({totalsoal:this.state.soal.length});
       })
@@ -83,47 +84,46 @@ class IsiExam extends Component<Props> {
      
       let isi = [];
       isi.push(
-                <View>
-                   <CountdownCircle
-                        seconds={this.state.waktu}
-                        radius={30}
-                        borderWidth={8}
-                        color="#ff003f"
-                        bgColor="#fff"
-                        textStyle={{ fontSize: 20 }}
-                        onTimeElapsed={(value) => {this.setState({value:'e'})}}
-                    />
-                   <Text style={{
-                    fontSize: 14,
-                    marginTop: 10,
-                    marginLeft: 20,
-                  }}
-                  key={this.state.soal[this.state.index].soal}
-                  >{this.state.soal[this.state.index].soal}</Text>
-                   <Text style={{
-                    fontSize: 14,
-                    marginTop: 10,
-                    marginLeft: 20,
-                  }}
-                  key={this.state.nomor}
-                  >{this.state.nomor}/{this.state.totalsoal}</Text>
-                                
-                  <TouchableOpacity key={this.state.soal[this.state.index].a} onPress={(value) => {this.setState({value:'a'})}}>
-                    <Text>{this.state.soal[this.state.index].a}</Text>
-                  </TouchableOpacity>
+        <View key={this.state.index}>
+        <Text 
+          style={styles.totalSoal}
+          key={this.state.nomor}>
+            {this.state.nomor}/{this.state.totalsoal}
+          </Text>
+        <Right>
+           <CountdownCircle
+            seconds={this.state.waktu}
+            key={this.state.waktu}
+            radius={18}
+            borderWidth={5}
+            color="#FFA02F"
+            bgColor="#f7f7f7"
+            textStyle={{ fontSize: 20 }}
+            onTimeElapsed={(value) => {this.setState({value:'e'})}}
+          /> 
+        </Right>
+          <Text
+            style={styles.textQuestion}
+            key={this.state.soal[this.state.index].soal}>
+              {this.state.soal[this.state.index].soal}
+          </Text>
                   
-                  <TouchableOpacity key={this.state.soal[this.state.index].b} onPress={(value) => {this.setState({value:'b'})}}>
-                    <Text>{this.state.soal[this.state.index].b}</Text>
-                  </TouchableOpacity>
+          <TouchableOpacity style={styles.option} key={this.state.soal[this.state.index].a} onPress={(value) => {this.setState({value:'a'})}}>
+            <Text style={styles.textOption}>{this.state.soal[this.state.index].a}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.option} key={this.state.soal[this.state.index].b} onPress={(value) => {this.setState({value:'b'})}}>
+            <Text style={styles.textOption}>{this.state.soal[this.state.index].b}</Text>
+          </TouchableOpacity>
+                
+          <TouchableOpacity style={styles.option} key={this.state.soal[this.state.index].c} onPress={(value) => {this.setState({value:'c'})}}>
+            <Text style={styles.textOption}>{this.state.soal[this.state.index].c}</Text>
+          </TouchableOpacity>
                   
-                  <TouchableOpacity key={this.state.soal[this.state.index].c} onPress={(value) => {this.setState({value:'c'})}}>
-                    <Text>{this.state.soal[this.state.index].c}</Text>
-                  </TouchableOpacity>
-                  
-                  <TouchableOpacity key={this.state.soal[this.state.index].d} onPress={(value) => {this.setState({value:'d'})}}>
-                    <Text>{this.state.soal[this.state.index].d}</Text>
-                  </TouchableOpacity>
-                </View>
+          <TouchableOpacity style={styles.option} key={this.state.soal[this.state.index].d} onPress={(value) => {this.setState({value:'d'})}}>
+            <Text style={styles.textOption}>{this.state.soal[this.state.index].d}</Text>
+          </TouchableOpacity>
+        </View>
         )
          return isi;
        }
@@ -133,17 +133,13 @@ class IsiExam extends Component<Props> {
     }
 
     render() {
+      console.disableYellowBox = true;
       const { params } = this.props.navigation.state;
       const benar = this.props.navigation.getParam("benar");
       const terjawab = this.props.navigation.getParam("terjawab");
        return (
         <View style={styles.container} >
           { this.handleEvents() }
-
-         <Text style={styles.text}>{JSON.stringify(benar)}</Text>
-           <Text style={styles.text}>{JSON.stringify(terjawab)}</Text>
-         <Text style={styles.text}>{this.state.benar}</Text>
-           <Text style={styles.text}>{this.state.terjawab}</Text>
          </View>
      );
   }
@@ -152,20 +148,37 @@ export default withNavigation(IsiExam);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F49423",
-    flex: 1,
-    paddingHorizontal: 20
-  },
-  text: {
-    color: "#000",
-    fontSize: 25,
-    textAlign: "center",
-    letterSpacing: -0.02,
-    fontWeight: "600"
+    flex: 1
   },
   safearea: {
     flex: 1,
     marginTop: 100,
     justifyContent: "space-between"
+  },
+  totalSoal: {
+    fontSize: 18,
+    marginTop: 41,
+    marginLeft: 45,
+    color: '#FFA02F',
+    fontWeight: 'bold'
+  },
+  textQuestion: {
+    marginVertical: 90,
+    marginHorizontal: 48,
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  option: {
+    height: 53,
+    backgroundColor: '#f7f7f7',
+    marginHorizontal: 45,
+    marginVertical: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textOption: {
+    color: '#F8A23B',
+    textAlign: 'center'
   }
 });

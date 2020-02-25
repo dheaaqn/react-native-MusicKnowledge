@@ -6,22 +6,6 @@ import {withNavigation} from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 
 class Quiz extends React.Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-        name: '',
-    };
-  }
-UNSAFE_componentWillMount() {
-      this.getData();
-  }
-    getData = async () => {
-      const test = await AsyncStorage.getItem('data');
-      const parsed = JSON.parse(test);
-      const name = String(parsed.name);
-      this.setState({name: name});
-      }
     render() {
     return (
       <View>

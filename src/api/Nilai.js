@@ -46,25 +46,25 @@ class Nilai extends Component<Props> {
       idnilai:0,
       data: []
     };
+    this.get();
   }
-  async componentDidMount() {
-            console.log(this.state.best);
+  async get() {
             const benars = this.props.navigation.state.params.jumlahbenar;
             const terjawabs = this.props.navigation.state.params.jumlahterjawab;
             const kosongs = this.props.navigation.state.params.jumlahkosong;
             const salahs = this.props.navigation.state.params.jumlahsalah;
             const idsubmateris = this.props.navigation.state.params.idsubmateri;
             const idusers = this.props.navigation.state.params.iduser;
-            this.setState({idsubmateri:idsubmateris});
-            this.setState({iduser:idusers});
-            this.setState({ benar: benars});
-            this.setState({ terjawab: terjawabs});
-            this.setState({ kosong: kosongs});
-            this.setState({ salah: salahs});
             const hitung = benars/terjawabs*100;
-            this.setState({ nilai: hitung});
             axios.get('http://3.82.209.169/api/nilai',{params: {id_user:idusers,id_soal:idsubmateris}})
                 .then(res => {
+                  this.setState({ nilai: hitung});
+                  this.setState({idsubmateri:idsubmateris});
+                  this.setState({iduser:idusers});
+                  this.setState({ benar: benars});
+                  this.setState({ terjawab: terjawabs});
+                  this.setState({ kosong: kosongs});
+                  this.setState({ salah: salahs});
                   this.setState({data:res.data});
                   for (let item of this.state.data) {
                   const bests = item.nilai;
@@ -95,21 +95,20 @@ class Nilai extends Component<Props> {
     render() {
        return (
         <View style={styles.container} >
-                 <Text style={styles.text}>Test</Text>
-                  <Text style={{
-                    fontSize: 14,
-                    marginTop: 10,
-                    marginLeft: 20,
-                  }}>{this.state.nilai}</Text>            
-         <Text style={styles.text}>best {this.state.best}</Text>
-         <Text style={styles.text}>iduser {this.state.iduser}</Text>
-         <Text style={styles.text}>idsubmateri {this.state.idsubmateri}</Text>
-         <Text style={styles.text}>benar {this.state.benar}</Text>
-         <Text style={styles.text}>salah {this.state.salah}</Text>
-         <Text style={styles.text}>kosong {this.state.kosong}</Text>
-         <Text style={styles.text}>terjawab {this.state.terjawab}</Text>
+         <Text style={styles.head}>Your Score</Text>
+         <Text style={styles.text}>{Math.trunc(this.state.nilai)}</Text>            
+         <Text style={styles.head}>Your Best Score</Text>
+         <Text style={styles.text}>{Math.trunc(this.state.best)}</Text>
+         <View style={{flexDirection:'row', flexWrap:'wrap',marginTop:50}}>
+         <Image source={require('../images/correct.png')} style={styles.gambar}/>
+         <Text style={styles.hasil}>{this.state.benar}</Text>
+         <Image source={require('../images/wrong.png')} style={styles.gambar}/>
+         <Text style={styles.hasil}>{this.state.salah}</Text>
+         <Image source={require('../images/timesup.png')} style={styles.gambar}/>
+         <Text style={styles.hasil}>{this.state.kosong}</Text>
+         </View>
                   <TouchableOpacity onPress={this.nextQuestion}>
-                    <Text>Next</Text>
+                  <Text style={styles.button}> Go Home </Text>
                   </TouchableOpacity>
          </View>
      );
@@ -119,13 +118,43 @@ export default withNavigation(Nilai);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F49423",
     flex: 1,
     paddingHorizontal: 20
   },
-  text: {
-    color: "#000",
+  button:{
+    color:'#fff',
+    textAlign: "center",
+    backgroundColor:'#F8A23B',
+    fontSize:15,
+    padding:15,
+    borderRadius:7,
+    marginTop: 70,
+    shadowColor: "#000",
+    fontWeight: "bold",
+  },
+  head:{
+    marginTop:30,
+    color: "#F49423",
+    fontSize: 24,
+    textAlign: "center",
+    letterSpacing: -0.02,
+    fontWeight: "bold"    
+  },
+  hasil:{
+    margin:10,
     fontSize: 25,
+    textAlign: "center",
+    letterSpacing: -0.02,
+   },
+  gambar:{
+    marginLeft:15,
+    marginRight:15,
+    width: 50,
+    height:50,
+  },
+   text: {
+    fontSize: 48,
+    fontWeight: "bold",
     textAlign: "center",
     letterSpacing: -0.02,
     fontWeight: "600"

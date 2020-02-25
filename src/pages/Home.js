@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import SubMateri from '../api/SubMateri';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Image } from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -14,8 +13,6 @@ class Home extends React.Component {
     this.state = {
         name: '',
     };
-  }
-  UNSAFE_componentWillMount() {
       this.getData();
   }
   getData = async () => {
@@ -32,21 +29,38 @@ class Home extends React.Component {
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Image source={require('../icons/menu.png')} />
             </Button>
-            <Text style={styles.hiName}>Hi {this.state.name}!</Text>
+            <Text style={styles.hiName}>Hi {this.state.name.toUpperCase()}!</Text>
             <Text style={styles.hiDesc}>What do you want to learn today?</Text>
           </View>
         </View>
 
         <ScrollView>
           <ModulesCard
-            judul={'Mengenal Dasar Seni Musik'}
+            judul={'Sejarah Seni Suara'}
+            image={require('../images/card-illus-1.png')}
+            id_sub_materi={2}
             navigation={this.props.navigation}/>
           <ModulesCard
-            judul={'Unsur-unsur dalam Seni Musik'}/>
+            id_sub_materi={3}
+            image={require('../images/card-illus-2.png')}
+            judul={'Jenis-jenis Lagu Nusantara'}/>
           <ModulesCard
-            judul={'Aliran-aliran dalam Seni Musik'}/>
+            id_sub_materi={4}
+            image={require('../images/card-illus-3.png')}
+            judul={'Musik Daerah Nusantara'}/>
           <ModulesCard
-            judul={'Mengenal Musik di Daerah Nusantara'}/>
+            judul={'Unsur-unsur Musik Nusantara'}
+            image={require('../images/card-illus-4.png')}
+            id_sub_materi={5}
+            navigation={this.props.navigation}/>
+          <ModulesCard
+            image={require('../images/genre.png')}
+            id_sub_materi={6}
+            judul={'Genre Musik Nusantara'}/>
+          <ModulesCard
+            image={require('../images/fugsi.png')}
+            id_sub_materi={7}
+            judul={'Fungsi Seni Musik'}/>
         </ScrollView>
       </Container>
     );

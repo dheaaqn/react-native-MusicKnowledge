@@ -32,9 +32,9 @@ class SubMateri extends React.Component {
     return (
         <Content padder>
                 <Card style={styles.cardContainer}>
-                    <CardItem button onPress={() => this.props.navigation.navigate('SubModules')}>
+                    <CardItem button onPress={() => this.props.navigation.navigate('IsiMateri',{id_sub_materi:this.props.id_sub_materi,judul:this.props.judul})}>
                         <Left><Text style={styles.textTitle}>{this.props.judul}</Text></Left>
-                        <Right><Image source={require('../images/card-illus-1.png')} style={{top: 48}}/></Right>
+                        <Right><Image source={this.props.image} style={{top: 48}}/></Right>
                     </CardItem>
                 </Card>
         </Content>

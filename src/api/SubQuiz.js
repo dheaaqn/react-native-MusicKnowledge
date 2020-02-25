@@ -13,6 +13,7 @@ class SubQuiz extends React.Component {
         submateri: [],
         id_user: 0,
     };
+    this.get();
   }
     getData = async () => {
       const test = await AsyncStorage.getItem('data');
@@ -20,7 +21,7 @@ class SubQuiz extends React.Component {
       const id = parsed.id;
       this.setState({id_user:id});
       }
-  UNSAFE_componentWillMount() {
+  get() {
       this.getData();
       axios.get(`http://3.82.209.169/api/submateri`,{params: {id_materi:3}})
       .then(res => {
@@ -34,7 +35,7 @@ class SubQuiz extends React.Component {
   renderItem = ({ item }) => (
     <Button warning style={styles.buttonStart} onPress={()=>this.props.navigation.navigate('IsiQuiz',{id_sub_materi:item.id_sub_materi,id_user:this.state.id_user})}>
       <Left>
-        <Text style={styles.text}>Modules 1</Text>
+        <Text style={styles.text}>{item.judul_sub_materi}</Text>
       </Left>
       <Body>
         <Text style={styles.text}>Start Quiz</Text>
