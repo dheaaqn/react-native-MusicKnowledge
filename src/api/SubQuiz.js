@@ -26,7 +26,6 @@ class SubQuiz extends React.Component {
       axios.get(`http://3.82.209.169/api/submateri`,{params: {id_materi:3}})
       .then(res => {
         const submateri = res.data;
-        console.log(submateri);
         this.setState({ submateri });
       })
   }
@@ -34,18 +33,15 @@ class SubQuiz extends React.Component {
   keyExtractor = (item, index) => index.toString()
   renderItem = ({ item }) => (
     <Button warning style={styles.buttonStart} onPress={()=>this.props.navigation.navigate('IsiQuiz',{id_sub_materi:item.id_sub_materi,id_user:this.state.id_user})}>
-      <Left>
-        <Text style={styles.text}>{item.judul_sub_materi}</Text>
-      </Left>
       <Body>
-        <Text style={styles.text}>Start Quiz</Text>
+        <Text style={styles.text}>{item.judul_sub_materi}</Text>
       </Body>
-      <Right><Image source={require('../icons/ic_arr_next.png')}/></Right>
+      <Image source={require('../icons/ic_arr_next.png')}/>
     </Button>
 )
   render() {
     return (
-        <View styles={styles.container}>
+        <View>
             <FlatList
                keyExtractor={this.keyExtractor}
                data={this.state.submateri}
@@ -58,8 +54,6 @@ class SubQuiz extends React.Component {
  export default withNavigation(SubQuiz);
 
 const styles = StyleSheet.create({
-  container: {
-  },
   buttonStart: {
     marginVertical: 15,
     marginHorizontal: 30,
@@ -67,6 +61,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   text: {
+    fontFamily: 'Nunito',
     color: '#fff'
   }
 });

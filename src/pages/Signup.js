@@ -55,17 +55,6 @@ return(
 
 const styles = StyleSheet.create({
 
-container : {
-
-backgroundColor:'#ffffff',
-
-flex: 1,
-
-alignItems:'center',
-
-justifyContent :'center'
-
-},
 
 signupTextCont : {
 
@@ -83,6 +72,8 @@ flexDirection:'row'
 
 signupText: {
 
+fontFamily: 'Nunito',
+
 color:'rgba(0,0,0,1)',
 
 fontSize:16
@@ -90,6 +81,8 @@ fontSize:16
 },
 
 signupButton: {
+
+fontFamily: 'Nunito',
 
 color:'#f8a33b',
 

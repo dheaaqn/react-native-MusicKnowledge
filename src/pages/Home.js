@@ -6,6 +6,7 @@ import { Container, Button } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
 import ModulesCard from '../components/ModulesCard';
+import LinearGradient from 'react-native-linear-gradient';
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Home extends React.Component {
     render() {
     return (
       <Container>
-        <View style={{backgroundColor: '#F49423', height: 200}}>
+      <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#FFB75E', '#ED8F03']} style={{height:200}}>
           <View style={{top: 30, left: 30}}>
             <Button transparent onPress={() => this.props.navigation.openDrawer()}>
               <Image source={require('../icons/menu.png')} />
@@ -32,7 +33,7 @@ class Home extends React.Component {
             <Text style={styles.hiName}>Hi {this.state.name.toUpperCase()}!</Text>
             <Text style={styles.hiDesc}>What do you want to learn today?</Text>
           </View>
-        </View>
+      </LinearGradient>
 
         <ScrollView>
           <ModulesCard
@@ -71,9 +72,11 @@ const styles = StyleSheet.create({
   hiName: {
     color: '#FFF',
     marginTop: 30,
+    fontFamily: 'Nunito'
   },
   hiDesc: {
     color: '#FFF',
+    fontFamily: 'Nunito'
   }
 })
  export default withNavigation(Home);

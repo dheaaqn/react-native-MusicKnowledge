@@ -18,7 +18,6 @@ class IndexesExam extends React.Component {
   }
     onPress=()=>{
 this.props.navigation.navigate('IsiExam',{id_user:this.state.id_user})      
-//  console.log("haha")
   }
     getData = async () => {
       const test = await AsyncStorage.getItem('data');
@@ -35,18 +34,3 @@ this.props.navigation.navigate('IsiExam',{id_user:this.state.id_user})
   }
 }
 export default withNavigation(IndexesExam);
-
-const styles = StyleSheet.create({
-  text: {
-    color: "#000",
-    fontSize: 25,
-    textAlign: "center",
-    letterSpacing: -0.02,
-    fontWeight: "600"
-  },
-  safearea: {
-    flex: 1,
-    marginTop: 100,
-    justifyContent: "space-between"
-  }
-});

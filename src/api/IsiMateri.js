@@ -74,6 +74,7 @@ const IC_ARR_UP = require('../icons/ic_arr_up.png');
                     fontSize: 14,
                     marginTop: 10,
                     marginLeft: 20,
+                    fontFamily: 'Nunito',
                   }}>{item[header]}</Text>
                 </View>
               }
@@ -83,8 +84,9 @@ const IC_ARR_UP = require('../icons/ic_arr_up.png');
                 styles.txt,
                 {
                   fontSize: 14,
-                    marginTop: 10,
-                    marginLeft: 20,
+                  marginTop: 10,
+                  fontFamily: 'Nunito',
+                  marginLeft: 20,
                 }
               ]}>
                 {item[paragraf]}
@@ -95,11 +97,10 @@ return isi;
      }
     }
   render() {
-       console.log(this.state.judul);
     return (
         <View style={styles.container} >
             <Content padder>
-                    <Separator bordered><Text style={{fontSize: 16 }}>
+                    <Separator bordered><Text style={{fontSize: 16 ,fontFamily:'Nunito'}}>
                     {this.state.judul}</Text></Separator>
              <ScrollView style={{ alignSelf: 'stretch' }}>
              { this.handleEvents() }
@@ -114,6 +115,6 @@ return isi;
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
-       flex: 1,
+    flex: 1,
   },
 });

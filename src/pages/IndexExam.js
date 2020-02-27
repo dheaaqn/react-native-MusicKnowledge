@@ -30,7 +30,7 @@ class IndexExam extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Text>Exam</Text>
+            <Text style={{fontFamily: 'Nunito'}}>Exam</Text>
           </Body>
           <Right></Right>
         </View>

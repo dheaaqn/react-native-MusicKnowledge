@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
         marginRight: 30
     },
     textTitle: {
+        fontFamily: 'Nunito',
         top: 25,
         fontSize: 14,
-        fontWeight: 'bold'
     }
 });

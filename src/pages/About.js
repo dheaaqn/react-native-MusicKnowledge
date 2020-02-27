@@ -17,7 +17,7 @@ class About extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Text>About Us</Text>
+            <Text style={{fontFamily: 'Nunito'}}>About Us</Text>
           </Body>
           <Right></Right>
         </View>
@@ -39,7 +39,7 @@ class About extends React.Component {
           <IsiAbout
             nama={'Intan Alrisa'}
             bagian={'Front-End Developer'}
-            link={() => Linking.openURL('https://www.instagram.com/intant_alrisa/')}
+            link={() => Linking.openURL('https://www.instagram.com/intan_alrisa/')}
             image={require('../images/intan.jpeg')}
             />
           <IsiAbout

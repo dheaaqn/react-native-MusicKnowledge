@@ -15,14 +15,4 @@ class Exam extends React.Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  hiName: {
-    color: '#FFF',
-    marginTop: 30,
-  },
-  hiDesc: {
-    color: '#FFF',
-  }
-})
-
 export default withNavigation(Exam);

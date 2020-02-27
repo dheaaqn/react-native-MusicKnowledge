@@ -16,7 +16,7 @@ class Quiz extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Text>Quiz</Text>
+            <Text style={{fontFamily: 'Nunito'}}>Quiz</Text>
           </Body>
           <Right></Right>
         </View>

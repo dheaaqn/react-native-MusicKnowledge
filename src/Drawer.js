@@ -19,7 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
          const [email, setEmail] = useState('');
          { getProfile() }
       return (
-        <Text>{ name.toUpperCase() }{"\n"}{"\n"}{ email }</Text>
+        <Text style={style.text}>{ name.toUpperCase() }{"\n"}{"\n"}{ email }</Text>
         );
       async function getProfile(){
       const test = await AsyncStorage.getItem('data');
@@ -42,7 +42,7 @@ const DrawerComponent = (props) => (
         { GetData() }
       </Text>
       <Button style={{marginTop:15, marginLeft:15}} transparent onPress={() => props.navigation.navigate('Profile')}>
-        <Text>Edit</Text>
+        <Text style={style.edit}>Edit</Text>
       </Button>
         <DrawerItems {...props}/>
     </ScrollView>
@@ -72,6 +72,16 @@ const style = StyleSheet.create({
   data:{
     marginLeft:27,
     marginTop:30,
+  },
+  edit:{
+    fontSize:12,
+    color: '#000',
+    fontFamily: 'Nunito'    
+  },
+  text:{
+    fontSize:16,
+    color: '#000',
+    fontFamily: 'Nunito'       
   }
 })
 export default createAppContainer(Drawer);

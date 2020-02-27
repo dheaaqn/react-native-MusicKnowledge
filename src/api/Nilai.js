@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     borderRadius:7,
     marginTop: 70,
     shadowColor: "#000",
-    fontWeight: "bold",
+    fontFamily: 'Nunito'
   },
   head:{
     marginTop:30,
@@ -138,13 +138,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: "center",
     letterSpacing: -0.02,
-    fontWeight: "bold"    
+    fontFamily: 'Nunito'
   },
   hasil:{
     margin:10,
     fontSize: 25,
     textAlign: "center",
     letterSpacing: -0.02,
+    fontFamily: 'Nunito'
    },
   gambar:{
     marginLeft:15,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
   },
    text: {
     fontSize: 48,
-    fontWeight: "bold",
+    fontFamily: 'Nunito',
     textAlign: "center",
     letterSpacing: -0.02,
     fontWeight: "600"

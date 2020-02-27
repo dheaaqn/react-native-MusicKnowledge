@@ -98,7 +98,7 @@ class IsiExam extends Component<Props> {
             borderWidth={5}
             color="#FFA02F"
             bgColor="#f7f7f7"
-            textStyle={{ fontSize: 20 }}
+            textStyle={{ fontSize: 20,fontFamily:'Nunito' }}
             onTimeElapsed={(value) => {this.setState({value:'e'})}}
           /> 
         </Right>
@@ -160,13 +160,13 @@ const styles = StyleSheet.create({
     marginTop: 41,
     marginLeft: 45,
     color: '#FFA02F',
-    fontWeight: 'bold'
+    fontFamily: 'Nunito',
   },
   textQuestion: {
     marginVertical: 90,
     marginHorizontal: 48,
     fontSize: 15,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito',
     textAlign: 'center'
   },
   option: {
@@ -174,11 +174,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
     marginHorizontal: 45,
     marginVertical: 20,
+    fontFamily: 'Nunito',
     justifyContent: 'center',
     alignItems: 'center'
   },
   textOption: {
     color: '#F8A23B',
+    fontFamily: 'Nunito',
     textAlign: 'center'
   }
 });

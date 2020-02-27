@@ -89,6 +89,8 @@ edit=()=> {
 
         placeholder="Name"
 
+        style={styles.hasil}
+
         keyboardType="default"
 
         onChangeText={(name) => this.setState({name})}
@@ -106,6 +108,8 @@ edit=()=> {
         placeholder="Password"
 
         secureTextEntry={true}
+
+        style={styles.hasil}
 
         onChangeText={(password) => this.setState({password})}
 
@@ -129,6 +133,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     flexWrap:'wrap',
     marginTop:20,
+    borderColor: '#b2b2b2',
     paddingBottom:30,
     borderBottomWidth: 1,
     width:'90%'
@@ -136,43 +141,16 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     flex: 1,
-    marginLeft: '10%'
+    marginLeft: '10%',
   },
   gambar:{
     marginRight:15,
     width: 60,
     height:60,
   },
-   cardContainer: {
-        borderRadius: 8,
-        height: 186,
-        marginBottom: 15,
-        marginTop: 15,
-    },
-    textTitle: {
-        top: 25,
-        left: 25,
-    },
-inputBox: {
-
-width:250,
-
-backgroundColor:'#F7F7F7',
-
-borderRadius: 4,
-
-paddingHorizontal:16,
-
-fontSize:15,
-
-lineHeight:19,
-
-color:'#000000',
-
-marginVertical: 10,
-
+hasil:{
+    fontFamily: 'Nunito'
 },
-
 button: {
     width:'90%',
     color:'#fff',
@@ -183,6 +161,6 @@ button: {
     borderRadius:7,
     marginTop: 70,
     shadowColor: "#000",
-    fontWeight: "bold",
+    fontFamily: 'Nunito'
  },
 });

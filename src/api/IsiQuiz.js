@@ -151,7 +151,7 @@ class IsiQuiz extends Component<Props> {
             borderWidth={5}
             color="#FFA02F"
             bgColor="#f7f7f7"
-            textStyle={{ fontSize: 20 }}
+            textStyle={{ fontFamily: 'Nunito',fontSize: 20 }}
             onTimeElapsed={(value) => {this.setState({value:'e'})}}
           /> 
         </Right>
@@ -201,33 +201,36 @@ const styles = StyleSheet.create({
   },
   safearea: {
     flex: 1,
+    fontFamily: 'Nunito',
     marginTop: 100,
     justifyContent: "space-between"
   },
   totalSoal: {
     fontSize: 18,
     marginTop: 41,
+    fontFamily: 'Nunito',
     marginLeft: 45,
     color: '#FFA02F',
-    fontWeight: 'bold'
   },
   textQuestion: {
     marginVertical: 90,
     marginHorizontal: 48,
+    fontFamily: 'Nunito',
     fontSize: 15,
-    fontWeight: 'bold',
     textAlign: 'center'
   },
   option: {
     height: 53,
     backgroundColor: '#f7f7f7',
     marginHorizontal: 45,
+    fontFamily: 'Nunito',
     marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
   textOption: {
     color: '#F8A23B',
+    fontFamily: 'Nunito',
     textAlign: 'center'
   },
   button:{
@@ -235,7 +238,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
     fontSize:12,
     padding:15,
-    borderRadius:7
+    borderRadius:7,
+    fontFamily: 'Nunito'
   },
   alertIsi: {
     color: '#fff',
@@ -243,6 +247,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8A23B',
     padding:20,
     fontSize: 15,
+    fontFamily: 'Nunito',
     borderRadius:10
   },
 });

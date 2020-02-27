@@ -114,6 +114,8 @@ backgroundColor:'#F7F7F7',
 
 borderRadius: 4,
 
+fontFamily: 'Nunito',
+
 paddingHorizontal:16,
 
 fontSize:15,
@@ -145,6 +147,8 @@ buttonText: {
 fontSize: 14,
 
 lineHeight: 19,
+
+fontFamily: 'Nunito',
 
 color:'#ffffff',
 
