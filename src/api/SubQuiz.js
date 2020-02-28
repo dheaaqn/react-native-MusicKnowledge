@@ -21,9 +21,9 @@ class SubQuiz extends React.Component {
       const id = parsed.id;
       this.setState({id_user:id});
       }
-  get() {
+  async get() {
       this.getData();
-      axios.get(`http://3.82.209.169/api/submateri`,{params: {id_materi:3}})
+      await axios.get(`http://3.82.209.169/api/submateri`,{params: {id_materi:3}})
       .then(res => {
         const submateri = res.data;
         this.setState({ submateri });

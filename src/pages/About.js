@@ -38,7 +38,7 @@ class About extends React.Component {
             />
           <IsiAbout
             nama={'Intan Alrisa'}
-            bagian={'Front-End Developer'}
+            bagian={'Researcher'}
             link={() => Linking.openURL('https://www.instagram.com/intan_alrisa/')}
             image={require('../images/intan.jpeg')}
             />
@@ -50,13 +50,13 @@ class About extends React.Component {
           />
           <IsiAbout
             nama={'Dhanissa Nafiul Lathifa'}
-            bagian={'Front-End Developer'}
+            bagian={'Content Writer'}
             link={() => Linking.openURL('https://www.instagram.com/dhanissathifa/')}
             image={require('../images/dhanisa.jpg')}
             />
           <IsiAbout
             nama={'Fajar Dwi Cahyo'}
-            bagian={'Front-End Developer'}
+            bagian={'Content Writer'}
             link={() => Linking.openURL('https://www.instagram.com/fjrdwc/')}
             image={require('../images/fajar.jpeg')}
           />
