@@ -22,8 +22,8 @@ class About extends React.Component {
           <Right></Right>
         </View>
 
-        <View  >
-        <ScrollView>
+        <View>
+        <ScrollView style={styles.head}>
           <IsiAbout
             nama={'Filemon Steven Juliyanto'}
             bagian={'Front-End & Back-End'}
@@ -60,7 +60,6 @@ class About extends React.Component {
             link={() => Linking.openURL('https://www.instagram.com/fjrdwc/')}
             image={require('../images/fajar.jpeg')}
           />
-                    <IsiAbout/>
         </ScrollView>
         </View>
       </View>
@@ -74,6 +73,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     flex: 1,
     flexDirection: 'row'
+  },
+  head:{
+    marginTop: 5,
+    marginBottom: 110,
   }
 })
  

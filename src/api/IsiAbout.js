@@ -57,7 +57,7 @@ class IsiAbout extends React.Component {
 const styles = StyleSheet.create({
    cardContainer: {
         borderRadius: 8,
-        height: 120,
+        height: 150,
         marginTop: 15,
         marginBottom: 15,
         marginLeft: 30,
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
     textTitle: {
         fontFamily: 'Nunito',
         top: 25,
-        fontSize: 14,
+        fontSize: 13,
     }
 });
