@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   head:{
     marginTop: 5,
-    marginBottom: 110,
+    marginBottom: 130,
   }
 })
  

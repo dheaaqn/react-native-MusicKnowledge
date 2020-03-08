@@ -35,15 +35,15 @@ class IsiAbout extends React.Component {
         <Content padder>
                 <Card style={styles.cardContainer}>
                     <CardItem button onPress={this.props.link}>
-                      <View style={{flexDirection:'row', flexWrap:'wrap',marginTop:10}}>
+                      <View style={{flexDirection:'row', flexWrap:'wrap',marginVertical:'5%',marginHorizontal:'5%'}}>
                         <Avatar
                         size="large"
                         rounded
                         source={this.props.image}
                       />
-                        <View style={{marginLeft:30}}>
+                        <View style={{marginHorizontal:'5%'}}>
                         <Text style={styles.textTitle}>{this.props.nama}</Text>
-                        <Text style={styles.textTitle}>{this.props.bagian}</Text>
+                        <Text style={styles.textTitles}>{this.props.bagian}</Text>
                         </View>
                       </View>
                     </CardItem>
@@ -57,14 +57,18 @@ class IsiAbout extends React.Component {
 const styles = StyleSheet.create({
    cardContainer: {
         borderRadius: 8,
-        height: 150,
-        marginTop: 15,
-        marginBottom: 15,
-        marginLeft: 30,
-        marginRight: 30
+        marginVertical:30,
+        marginHorizontal:15,
+        width: '100%',
+        height: '100%'
     },
     textTitle: {
         fontFamily: 'Nunito',
+        top: 25,
+        fontSize: 13,
+    },
+    textTitles: {
+        fontFamily: 'Nunito_Regular',
         top: 25,
         fontSize: 13,
     }

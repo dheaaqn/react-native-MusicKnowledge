@@ -85,7 +85,7 @@ const IC_ARR_UP = require('../icons/ic_arr_up.png');
                 {
                   fontSize: 14,
                   marginTop: 10,
-                  fontFamily: 'Nunito',
+                  fontFamily: 'Nunito_Regular',
                   marginLeft: 20,
                 }
               ]}>

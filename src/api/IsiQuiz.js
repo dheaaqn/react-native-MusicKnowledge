@@ -117,7 +117,9 @@ class IsiQuiz extends Component<Props> {
  
                 <View>
  
+                <View style={{ justifyContent: 'center',alignItems: 'center'}}>
                     <Image source={this.state.jawaban}/>
+                </View>
  
                     <View style={{ width: '100%', height: 2,marginTop:90}} />
  
